@@ -1,0 +1,8 @@
+<h2><%= @note.name %></h2>
+<p><%= @note.description %></p>
+<a href="<%= @note.link %>">Ссылка</a><br>
+<br>
+<%= link_to 'Назад', notes_path %> |
+<%= link_to 'Редактировать', edit_note_path(@note) %><br><br>
+<%= button_to 'Удалить', @product, method: :delete,
+              data: {turbo_confirm: 'Действительно хотите удалить?'} %>

@@ -1,0 +1,9 @@
+<h1>Заметки</h1>
+<%= link_to 'Сделать новую заметку', new_note_path %>
+<div>
+  <% @notes.each do |n| %>
+  <ul>
+    <li><%= link_to n.name, note_path(n.id) %></li>
+  </ul>
+  <% end %>
+</div>

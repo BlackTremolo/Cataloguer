@@ -1,0 +1,25 @@
+<%= form_with model: note do |f| %>
+
+  <% if f.object.errors.any? %>
+    <p class="error"><%= f.object.errors.full_messages.first %></p>
+  <% end %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+  </div>
+
+  <div>
+    <%= f.label :link %>
+    <%= f.text_field :link%>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description%>
+  </div>
+
+  <div>
+    <%= f.submit %><br>
+  </div>
+<% end %>
