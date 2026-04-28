@@ -1,5 +1,5 @@
 <h1>Заметки</h1>
-<%= link_to 'Сделать новую заметку', new_note_path %>
+<%= link_to 'Сделать новую заметку', new_note_path if authenticated? %>
 <div>
   <% @notes.each do |n| %>
   <ul>
