@@ -5,17 +5,21 @@
   <% end %>
 
   <div>
-    <%= f.label :name %>
+    <%= f.label 'Выберите каталог' %>
+    <%= f.collection_select :catalog_id, Catalog.order(:name), :id, :name %>
+  </div>
+  <div>
+    <%= f.label 'Название заметки' %>
     <%= f.text_field :name%>
   </div>
 
   <div>
-    <%= f.label :link %>
+    <%= f.label 'Ссылка' %>
     <%= f.text_field :link%>
   </div>
 
   <div>
-    <%= f.label :description %>
+    <%= f.label 'Описание' %>
     <%= f.text_area :description%>
   </div>
 

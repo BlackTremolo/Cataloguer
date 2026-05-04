@@ -1,6 +1,8 @@
-<h2><%= @note.name %></h2>
-<p><%= @note.description %></p>
-<a href="<%= @note.link %>">Ссылка</a><br>
+<section class="">
+<!--  <h1><%#= Catalog.find(@note.catalog_id) %></h1>-->
+  <h2><%= @note.name %></h2>
+  <p><%= @note.description %></p>
+  <a href="<%= @note.link %>">Ссылка</a><br>
 <br>
 
 <%= link_to 'Назад', notes_path %> |
@@ -10,4 +12,4 @@
   <%= button_to 'Удалить', @note, method: :delete,
                 data: {turbo_confirm: 'Действительно хотите удалить?'} %>
 <% end %>
-
+</section>

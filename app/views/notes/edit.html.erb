@@ -1,7 +1,7 @@
 <h1>Редактировать заметку</h1>
 
-<%= render 'form', note: @note %>
+<%= render 'form_edit', note: @note %>
 
 <div>
-  <%= link_to 'Назад', note_path(@note.id) %>
+  <%= link_to 'Назад', root_path %>
 </div>

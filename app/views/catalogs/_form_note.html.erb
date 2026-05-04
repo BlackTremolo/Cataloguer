@@ -1,0 +1,34 @@
+ <%= form_with model: note do |f| %>
+
+  <% if f.object.errors.any? %>
+    <p class="error"><%= f.object.errors.full_messages.first %></p>
+  <% end %>
+
+<!--  <div>-->
+    <%#= f.label 'Выберите каталог' %>
+<!--    <select>-->
+      <%# catalogs.each do |c| %>
+<!--        <option><%#= c.name %></option>-->
+        <%#= f.hidden_field catalog_id: c.id %>
+      <%# end %>
+<!--    </select>-->
+<!--  </div>-->
+  <div>
+    <%= f.label 'Название заметки' %>
+    <%= f.text_field :name%>
+  </div>
+
+  <div>
+    <%= f.label 'Ссылка' %>
+    <%= f.text_field :link%>
+  </div>
+
+  <div>
+    <%= f.label 'Описание' %>
+    <%= f.text_area :description%>
+  </div>
+
+  <div>
+    <%= f.submit %><br>
+  </div>
+<% end %>

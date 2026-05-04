@@ -6,24 +6,26 @@ class NotesController < ApplicationController
     @notes = Note.all
   end
 
-  def show
-  end
+  # больше не нужен
+  # def show
+  # end
 
-  def new
-    @note = Note.new
-  end
+  # def new
+  #   @note = Note.new
+  # end
 
   def create
     @note = Note.new(note_params)
 
     if @note.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Заметка создана'
     else
-      render :new, status: :unprocessable_entity
+      render 'catalogs/index', status: :unprocessable_entity
     end
   end
 
   def edit
+    @catalogs = Catalog.all
   end
 
   def update
@@ -35,6 +37,7 @@ class NotesController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+
   def destroy
     if @note.destroy
       redirect_to root_path
@@ -50,6 +53,6 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.expect(note: [:name, :link, :description])
+    params.expect(note: [:name, :link, :description, :catalog_id])
   end
 end

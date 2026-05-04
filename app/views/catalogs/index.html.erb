@@ -1,0 +1,40 @@
+<%#= link_to 'Сделать новую заметку', new_note_path  if authenticated? %>
+<button id="btn-for-catalog">Создать новый каталог</button>
+<div id="new-catalog-form">
+  <%= render 'form_catalog', catalog: @catalog %>
+</div>
+<br>
+<br>
+<button id="btn-for-form">Сделать новую заметку</button>
+<div id="new-note-form">
+  <%= render 'form_note', note: @note_new %>
+</div>
+<br>
+<br>
+<% @catalogs.each do |c| %>
+  <details>
+    <summary><%=c.name %></summary>
+    <div>
+      <ul>
+        <% c.notes.each do |n| %>
+          <li>
+            <details>
+              <summary><%= n.name %></summary>
+              <section class="">
+                <!--  <h1><%#= Catalog.find(@note.catalog_id) %></h1>-->
+                <p><%= n.description %></p>
+                <a href="<%= n.link %>">Ссылка</a><br>
+                <br>
+                <% if authenticated? %>
+                  <%= link_to 'Редактировать', edit_note_path(n) %><br><br>
+                  <%= button_to 'Удалить', n, method: :delete,
+                                data: {turbo_confirm: 'Действительно хотите удалить?'} %>
+                <% end %>
+              </section>
+            </details>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </details>
+<% end %>

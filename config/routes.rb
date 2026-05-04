@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
   resources :notes
-  root "notes#index"
+  resources :catalogs
+  root "catalogs#index"
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

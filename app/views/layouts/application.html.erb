@@ -8,7 +8,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <%= yield :head %>
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
@@ -21,6 +21,8 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+
   </head>
 
   <body>
@@ -31,6 +33,13 @@
         <%= button_to 'Выйти', session_path, method: :delete if authenticated? %>
       </div>
     </nav>
+    <div class="green-text">
+      <% if flash.any? %>
+        <% flash.each do |name, message| %>
+          <%= content_tag :div, message %>
+        <% end %>
+      <% end %>
+    </div>
     <main><%= yield %></main>
   </body>
 </html>

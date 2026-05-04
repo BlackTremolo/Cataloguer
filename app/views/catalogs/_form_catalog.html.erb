@@ -1,0 +1,15 @@
+<%= form_with model: catalog do |f| %>
+
+  <% if f.object.errors.any? %>
+    <p class="error"><%= f.object.errors.full_messages.first %></p>
+  <% end %>
+
+  <div>
+    <%= f.label 'Название' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.submit %><br>
+  </div>
+<% end %>
