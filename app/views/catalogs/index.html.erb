@@ -28,13 +28,17 @@
                 <% if authenticated? %>
                   <%= link_to 'Редактировать', edit_note_path(n) %><br><br>
                   <%= button_to 'Удалить', n, method: :delete,
-                                data: {turbo_confirm: 'Действительно хотите удалить?'} %>
+                                data: {turbo_confirm: 'Действительно хотите удалить заметку?'} %>
                 <% end %>
               </section>
             </details>
           </li>
         <% end %>
       </ul>
+    </div>
+    <div>
+      <%= button_to 'Удалить каталог', c, method: :delete,
+                    data: {turbo_confirm: 'Действительно хотите удалить каталог'} %>
     </div>
   </details>
 <% end %>

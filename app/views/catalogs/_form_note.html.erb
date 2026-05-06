@@ -4,15 +4,11 @@
     <p class="error"><%= f.object.errors.full_messages.first %></p>
   <% end %>
 
-<!--  <div>-->
-    <%#= f.label 'Выберите каталог' %>
-<!--    <select>-->
-      <%# catalogs.each do |c| %>
-<!--        <option><%#= c.name %></option>-->
-        <%#= f.hidden_field catalog_id: c.id %>
-      <%# end %>
-<!--    </select>-->
-<!--  </div>-->
+   <div>
+     <%= f.label 'Выберите каталог' %>
+     <%= f.collection_select :catalog_id, Catalog.order(:created_at), :id, :name %>
+   </div>
+
   <div>
     <%= f.label 'Название заметки' %>
     <%= f.text_field :name%>

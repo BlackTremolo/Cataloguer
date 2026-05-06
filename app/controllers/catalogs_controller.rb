@@ -28,9 +28,18 @@ class CatalogsController < ApplicationController
   end
 
   def update
+
   end
 
   def destroy
+    notes = @catalog.notes
+    notes.each {|n| n.update!(catalog_id: 1)}
+
+    if @catalog.destroy
+      redirect_to root_path
+    else
+      render "catalogs/index", status: :unprocessable_entity
+    end
   end
 
   private
